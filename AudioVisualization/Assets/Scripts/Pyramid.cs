@@ -31,18 +31,11 @@ public class Pyramid : MonoBehaviour {
     void Update()
     {
         //Material matte = GetComponent<Renderer>().material;
-
         Vector3 target;
         float step = speed * Time.deltaTime;
-        for (int i = 0; i < elements.Count; i++)
+        for (int i = 0; i < elements.Count/2; i++)
         {
-            Vector3 ls = elements[i].transform.localScale;
-            ls.y = Mathf.Lerp(ls.y, 4 + (AudioScript.bands[i] * (scale*2)), Time.deltaTime * 3.0f);
-            //Color color = new Color(AudioScript.audioBandBuffer[1], AudioScript.audioBandBuffer[1], AudioScript.audioBandBuffer[1]);
-            //matte.SetColor("_EmissionColor", Color.white);
-            elements[i].transform.localScale = ls;
-            elements[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
-
+           
             //Vector3 ls1 = elements1[i].transform.localScale;
             //ls1.z = Mathf.Lerp(ls1.z, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
             //elements1[i].transform.localScale = ls1;
@@ -70,9 +63,32 @@ public class Pyramid : MonoBehaviour {
             */
 
         }
+
+        int middle = 0;
+        for (int i = 0; i < elements.Count; i++)
+        {
+            if (middle == 9)
+            {
+                middle = 0;
+            }
+            Vector3 ls3 = elements[i].transform.localScale;
+            ls3.y = Mathf.Lerp(ls3.y, 4 + (AudioScript.bands[middle] * (scale * 2)), Time.deltaTime * 3.0f);
+            elements[i].transform.localScale = ls3;
+            if (i > 9 && i < 19)
+            {
+                elements[i].transform.RotateAround(elements[i].transform.position, -elements[i].transform.up, 50 * Time.deltaTime);
+            }
+            else
+            {
+                elements[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
+            }
+            middle++;
+        }
+
+
+
         int j = 0;
         for (int i = 0; i < elements4.Count; i++)
-
         {
             if (j == 9)
             {
@@ -109,7 +125,7 @@ public class Pyramid : MonoBehaviour {
         float gradient = 1.2f;
         float theta = (Mathf.PI * 2.0f) / (float)AudioScript.bands.Length;
         // Pyramid of cubes
-        for (int z = 0; z < 9; z++)
+        for (int z = 0; z < 19; z++)
         {
             //******************************************************************************************* Pyramid of cubes
             GameObject cube = Instantiate(cube1, Vector3.zero, cube1.transform.rotation) as GameObject;
@@ -169,14 +185,20 @@ public class Pyramid : MonoBehaviour {
                 );
             elements2.Add(sphere2);
             */
-            //******************************************************************************************* Circle of Spheres3
+            
+        }
+
+        //******************************************************************************************* Circle of Spheres3
+
+        for (int x = 0; x < 9; x++)
+        {
             Vector3 p2 = new Vector3(
-                (Mathf.Sin(theta * z) * (radius-1.2f)) + locationX
-                , 5f
-                , (Mathf.Cos(theta * z) * (radius-1.2f)) + locationZ
-                );
+            (Mathf.Sin(theta * x) * (radius - 1.2f)) + locationX
+            , 5f
+            , (Mathf.Cos(theta * x) * (radius - 1.2f)) + locationZ
+            );
             p2 = transform.TransformPoint(p2);
-            Quaternion q2 = Quaternion.AngleAxis(theta * z * Mathf.Rad2Deg, Vector3.up);
+            Quaternion q2 = Quaternion.AngleAxis(theta * x * Mathf.Rad2Deg, Vector3.up);
             q2 = transform.rotation * q2;
 
             GameObject sphere3 = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
@@ -189,10 +211,8 @@ public class Pyramid : MonoBehaviour {
                 );
             elements3.Add(sphere3);
             gradient -= .15f;
- 
         }
 
-        
         // 20 x 20 square of cubes
         for (int x = 0; x < pyraSize; x++)
         {
@@ -218,7 +238,7 @@ public class Pyramid : MonoBehaviour {
         scale1 = 1;
         scale2 = 1;
 
-        //test = .6f;
+        test = .6f;
         // 20 x 20 square of cubes
         for (int x = 0; x < pyraSize; x++)
         {
@@ -252,7 +272,7 @@ public class Pyramid : MonoBehaviour {
             scale1 += .5f;
             if(test >= 1f)
             {
-                test = 0;
+                test = .5f;
             }
 
             test += .1f;
