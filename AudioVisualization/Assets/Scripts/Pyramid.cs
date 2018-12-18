@@ -37,7 +37,7 @@ public class Pyramid : MonoBehaviour {
         for (int i = 0; i < elements.Count; i++)
         {
             Vector3 ls = elements[i].transform.localScale;
-            ls.y = Mathf.Lerp(ls.y, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            ls.y = Mathf.Lerp(ls.y, 4 + (AudioScript.bands[i] * (scale*2)), Time.deltaTime * 3.0f);
             //Color color = new Color(AudioScript.audioBandBuffer[1], AudioScript.audioBandBuffer[1], AudioScript.audioBandBuffer[1]);
             //matte.SetColor("_EmissionColor", Color.white);
             elements[i].transform.localScale = ls;
@@ -53,10 +53,10 @@ public class Pyramid : MonoBehaviour {
             elements2[i].transform.localScale = ls3;
             elements2[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.right, 50 * Time.deltaTime);
 
-            Vector3 ls2 = elements3[i].transform.localScale;
-            ls2.x = Mathf.Lerp(ls2.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
-            elements3[i].transform.localScale = ls2;
-            elements3[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
+            //Vector3 ls2 = elements3[i].transform.localScale;
+            //ls2.x = Mathf.Lerp(ls2.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            //elements3[i].transform.localScale = ls2;
+            //elements3[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
 
             /*
             if (AudioScript.bands[i] * scale > 4)
@@ -121,15 +121,15 @@ public class Pyramid : MonoBehaviour {
             elements.Add(cube);
             scale2 += .1f;
             scale2 = 1;
-            height += .1f;
+            height += .2f;
             width++;
 
 
             //******************************************************************************************* Circle of Spheres
             Vector3 p = new Vector3(
-                Mathf.Sin(theta * z) * 1.5f
+                 (Mathf.Sin(theta * z) * 2f) + 2.25f
                 , .2f
-                , Mathf.Cos(theta * z) * 1.5f
+                , (Mathf.Cos(theta * z) * 2f) + 2.5f
                 );
             p = transform.TransformPoint(p);
             Quaternion q = Quaternion.AngleAxis(theta * z * Mathf.Rad2Deg, Vector3.up);
@@ -188,78 +188,6 @@ public class Pyramid : MonoBehaviour {
             gradient += .15f;
 
         }
-
-        /*
-        for (int i = 0; i < 9; i++)
-        {
-            Vector3 p = new Vector3(
-                Mathf.Sin(theta * i) * 1.5f
-                , .2f
-                , Mathf.Cos(theta * i) * 1.5f
-                );
-            p = transform.TransformPoint(p);
-            Quaternion q = Quaternion.AngleAxis(theta * i * Mathf.Rad2Deg, Vector3.up);
-            q = transform.rotation * q;
-
-            GameObject sphere = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
-            sphere.transform.SetPositionAndRotation(p, q);
-            sphere.transform.localScale += new Vector3(0, 0, 0);
-            sphere.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                i / (float)AudioScript.bands.Length
-                , 1
-                , 1
-                );
-            elements1.Add(sphere);
-        }
-        */
-        /*
-        for (int i = 0; i < 9; i++)
-        {
-            Vector3 p = new Vector3(
-                Mathf.Sin(theta * i) * radius
-                , .2f
-                , Mathf.Cos(theta * i) * radius
-                );
-            p = transform.TransformPoint(p);
-            Quaternion q = Quaternion.AngleAxis(theta * i * Mathf.Rad2Deg, Vector3.up);
-            q = transform.rotation * q;
-
-            GameObject sphere = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
-            sphere.transform.SetPositionAndRotation(p, q);
-            sphere.transform.localScale += new Vector3(0, 0, 0);
-            sphere.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                i / (float)AudioScript.bands.Length
-                , 1
-                , 1
-                );
-            elements2.Add(sphere);
-        }
-        */
-        /*
-        for (int i = 0; i < 9; i++)
-        {
-            Vector3 p = new Vector3(
-                Mathf.Sin(theta * i) * radius
-                , .2f
-                , Mathf.Cos(theta * i) * radius
-                );
-            p = transform.TransformPoint(p);
-            Quaternion q = Quaternion.AngleAxis(theta * i * Mathf.Rad2Deg, Vector3.up);
-            q = transform.rotation * q;
-
-            GameObject sphere = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
-            sphere.transform.SetPositionAndRotation(p, q);
-            sphere.transform.localScale += new Vector3(0, 0, 0);
-            sphere.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                1
-                , .01f + gradient
-                , .8f
-                );
-            elements3.Add(sphere);
-            gradient += .15f;
-        }
-
-        */
 
         float test = 0f;
         // 20 x 20 square of cubes
