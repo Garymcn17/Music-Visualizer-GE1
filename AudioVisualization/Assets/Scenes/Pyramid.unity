@@ -439,6 +439,8 @@ MonoBehaviour:
   scale2: 1
   height: 0
   width: 1
+  locationX: 2.25
+  locationZ: 2.5
 --- !u!1 &1011225385
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useMic: 0
-  clip: {fileID: 8300000, guid: 44c1a27f301f7d24d9f4748788708a5f, type: 3}
+  clip: {fileID: 8300000, guid: 35d0bc2437bb49e4eae5075934d439ce, type: 3}
   amgMic: {fileID: 0}
   amgMaster: {fileID: 0}
   selectedDevice: 

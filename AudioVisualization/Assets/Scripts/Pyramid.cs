@@ -49,8 +49,9 @@ public class Pyramid : MonoBehaviour {
             Vector3 ls2 = elements3[i].transform.localScale;
             ls2.y = Mathf.Lerp(ls2.y, 1 + (AudioScript.bands[i] * (scale *2)), Time.deltaTime * 3.0f);
             elements3[i].transform.localScale = ls2;
-            elements3[i].transform.RotateAround(elements[i].transform.position,- elements[i].transform.up, 50 * Time.deltaTime);
-
+            elements3[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
+            //Debug.Log(elements.Count / 2);
+            //Debug.Log(elements.Count);
             /*
             if (AudioScript.bands[i] * scale > 4)
             {
@@ -72,7 +73,7 @@ public class Pyramid : MonoBehaviour {
                 middle = 0;
             }
             Vector3 ls3 = elements[i].transform.localScale;
-            ls3.y = Mathf.Lerp(ls3.y, 4 + (AudioScript.bands[middle] * (scale * 2)), Time.deltaTime * 3.0f);
+            ls3.y = Mathf.Lerp(ls3.y, -(4 + (AudioScript.bands[middle] * (scale * 2))), Time.deltaTime * 3.0f);
             elements[i].transform.localScale = ls3;
             if (i > 9 && i < 19)
             {
@@ -125,7 +126,7 @@ public class Pyramid : MonoBehaviour {
         float gradient = 1.2f;
         float theta = (Mathf.PI * 2.0f) / (float)AudioScript.bands.Length;
         // Pyramid of cubes
-        for (int z = 0; z < 19; z++)
+        for (int z = 0; z < 18; z++)
         {
             //******************************************************************************************* Pyramid of cubes
             GameObject cube = Instantiate(cube1, Vector3.zero, cube1.transform.rotation) as GameObject;
