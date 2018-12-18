@@ -72,6 +72,7 @@ public class Pyramid : MonoBehaviour {
         }
         int j = 0;
         for (int i = 0; i < elements4.Count; i++)
+
         {
             if (j == 9)
             {
@@ -110,8 +111,8 @@ public class Pyramid : MonoBehaviour {
             //******************************************************************************************* Pyramid of cubes
             GameObject cube = Instantiate(cube1, Vector3.zero, cube1.transform.rotation) as GameObject;
             cube.transform.parent = transform;
-            cube.transform.localPosition = new Vector3(0, 0 + height, 0);
-            cube.transform.localScale += new Vector3(9 - width, 0, 9 - width);
+            cube.transform.localPosition = new Vector3(2.25f, 0 + height, 2.5f);
+            cube.transform.localScale += new Vector3((9 - width) *3, 2, (9 - width) *3);
             cube.GetComponent<Renderer>().material.color = Color.HSVToRGB(
                 1
                 , .01f + gradient
@@ -165,7 +166,7 @@ public class Pyramid : MonoBehaviour {
                 );
             elements2.Add(sphere2);
 
-            //******************************************************************************************* Circle of Spheres
+            //******************************************************************************************* Circle of Spheres3
             Vector3 p2 = new Vector3(
                 Mathf.Sin(theta * z) * radius
                 , .2f
@@ -261,7 +262,7 @@ public class Pyramid : MonoBehaviour {
         */
 
         float test = 0f;
-        // 10 x 10 square of cubes
+        // 20 x 20 square of cubes
         for (int x = 0; x < pyraSize; x++)
         {
             for (int z = 0; z < pyraSize; z++)
@@ -285,7 +286,7 @@ public class Pyramid : MonoBehaviour {
         scale1 = 1;
         scale2 = 1;
        
-        // 10 x 10 square of cubes
+        // 20 x 20 square of cubes
         for (int x = 0; x < pyraSize; x++)
         {
             for (int z = 0; z < pyraSize; z++)
@@ -304,7 +305,7 @@ public class Pyramid : MonoBehaviour {
                 GameObject cube2 = Instantiate(cube1, Vector3.zero, cube1.transform.rotation) as GameObject;
                 cube2.transform.parent = transform;
                 cube2.transform.localScale += new Vector3(3, 3, 1);
-                cube2.transform.localPosition = new Vector3(-3.5f + scale1, -2.75f + scale2, 2.75f);
+                cube2.transform.localPosition = new Vector3(-3.5f + scale1, -2.75f + scale2, 7.75f);
                 cube2.GetComponent<Renderer>().material.color = Color.HSVToRGB(
                     1
                     , .01f + test
