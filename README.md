@@ -1,13 +1,15 @@
 # Music-Visualizer-GE1
 
 ## Description
-I created a music visualizer within the unity application. I combined shapes and colours along side music to create a visualizer in which the user feels immersed within. The project involves one central location that all the visualizations will revolve around, a central point the viewer will focus on while the surroundings begin to evolve and create amazing patterns and shapes. There is a camera within the visualizer in which the user can change the angles in which they view the visualization. It does this by creating cubes, spheres, cylinders and using the frequencies of an audio clip to manipulate the dimensions of the shapes. Some componets rotate around other components while some rotate around their own axis.
+I created a music visualizer within the unity application. I combined shapes and colours along side music to create a visualizer in which the user feels immersed within. The project involves one central location that all the visualizations will revolve around, a central point the viewer will focus on while the surroundings begin to evolve and create amazing patterns and shapes. There is a camera within the visualizer in which the user can change the angles in which they view the visualization. It does this by creating cubes, spheres, cylinders and using the frequencies of an audio clip to manipulate the dimensions of the shapes. Some componets rotate around other components while some rotate around their own axis. The idea of this project was to be beautiful to look at and I believe I achieved this. Take a look at the thumbnail below for a preview of the video. 
+
+To run this all you should need to do is either clone the repo or download the zip file and open the project with Unity and it should work with no problems. (Assuming you are using a newer version of Unity)
 
 ### Development Process
-I used a YouTube Tutorial my lecture mentioned and also used his example from our class to handle the audio frequencies and move the shapes. I also used an example from a lecture to spawn components in a circle. The rest of the project was either done myself of by using the unity documents. 
+I used a YouTube Tutorial my lecture mentioned and also used his example from our class to handle the audio frequencies and move the shapes. I also used an example from a lecture to spawn components in a circle. The rest of the project was either done myself or by using the unity documents for help.
 
 ### Proudest Component
-I developed an hour glass shape out of cubes and assigned a different frequency band to each layer of this hour glass and it bounces to the audio clip being played. This is done by changing the width and height of a cube after each iteration of a loop, this is not a very difficult task but it looks amazing and each layer has a slightly different colour making easy to see which layers are moving.
+I developed an hour glass shape out of cubes and assigned a different frequency band to each layer of this hour glass and it bounces to the audio clip being played. This is done by changing the width and height of a cube after each iteration of a loop, this is not a very difficult task but it looks amazing and each layer has a slightly different colour making it easy to see which layers are moving.
 
 ## View it on YouTube!!
 [![Hour Glass Dancing!](https://github.com/Garymcn17/Music-Visualizer-GE1/blob/master/Thumbnail.PNG)](https://www.youtube.com/watch?v=S1h6h17zOMw&feature=youtu.be&fbclid=IwAR1JoYNm190p1VA9Sgg9nGS-0pSeBi_bYsj5xuB0vTpwvuQawOxhZt7PbJk)
