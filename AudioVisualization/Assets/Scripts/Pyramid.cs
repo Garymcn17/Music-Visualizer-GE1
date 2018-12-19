@@ -6,7 +6,8 @@ public class Pyramid : MonoBehaviour {
 
     public float radius = 50;
     public float scale = 10;
-    List<GameObject> elements = new List<GameObject>();
+    public List<GameObject> elements = new List<GameObject>();
+    List<GameObject> elements1 = new List<GameObject>();
     List<GameObject> elements3 = new List<GameObject>();
     List<GameObject> elements4 = new List<GameObject>();
     List<GameObject> elements5 = new List<GameObject>();
@@ -33,6 +34,17 @@ public class Pyramid : MonoBehaviour {
         float step = speed * Time.deltaTime;
         for (int i = 0; i < elements.Count/2; i++)
         {
+           
+            Vector3 ls1 = elements1[i].transform.localScale;
+            ls1.z = Mathf.Lerp(ls1.z, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            elements1[i].transform.localScale = ls1;
+            elements1[i].transform.RotateAround(elements[i].transform.position, - elements[i].transform.right, 50 * Time.deltaTime);
+
+            //Vector3 ls3 = elements2[i].transform.localScale;
+            //ls3.x = Mathf.Lerp(ls3.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            //elements2[i].transform.localScale = ls3;
+            //elements2[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.right, 50 * Time.deltaTime);
+
             Vector3 ls2 = elements3[i].transform.localScale;
             ls2.y = Mathf.Lerp(ls2.y, 1 + (AudioScript.bands[i] * (scale *2)), Time.deltaTime * 3.0f);
             elements3[i].transform.localScale = ls2;
@@ -160,6 +172,27 @@ public class Pyramid : MonoBehaviour {
                 );
             elements3.Add(sphere3);
             gradient -= .15f;
+
+
+            //******************************************************************************************* Circle of Spheres
+            Vector3 p = new Vector3(
+                 (Mathf.Sin(theta * x) * radius) + locationX
+                , -2f
+                , (Mathf.Cos(theta * x) * radius) + 1
+                );
+            p = transform.TransformPoint(p);
+            Quaternion q = Quaternion.AngleAxis(theta * x * Mathf.Rad2Deg, Vector3.up);
+            q = transform.rotation * q;
+            GameObject sphere2 = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
+            sphere2.transform.SetPositionAndRotation(p, q);
+            sphere2.transform.localScale += new Vector3(0, 0, 0);
+            sphere2.GetComponent<Renderer>().material.color = Color.HSVToRGB(
+                    x / (float)AudioScript.bands.Length
+                    , 1
+                    , 1
+                    );
+            elements1.Add(sphere2);
+
         }
 
         // 20 x 20 square of cubes
