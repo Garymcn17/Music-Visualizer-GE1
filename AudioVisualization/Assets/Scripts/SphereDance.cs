@@ -8,8 +8,6 @@ public class SphereDance : MonoBehaviour {
     List<GameObject> elements1 = new List<GameObject>();
     List<GameObject> elements2 = new List<GameObject>();
 
-    public GameObject cube1;
-    public int pyraSize = 20;
     float scale1 = 1;
     float scale2 = 1;
     float height = 0;
@@ -17,30 +15,43 @@ public class SphereDance : MonoBehaviour {
     float locationX = 2.25f;
     float locationZ = 2.5f;
     float test = 0f;
-    public float radius = 50;
+
+    public float radius = 10;
     public float scale = 10;
 
     // Use this for initialization
     void Start () {
         createSphere();
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        for (int i = 0; i < elements1.Count / 2; i++)
+
+
+   
+
+    // Update is called once per frame
+    void Update () {
+
+
+        for (int i = 0; i < elements1.Count; i++)
         {
+
             Vector3 ls1 = elements1[i].transform.localScale;
-            ls1.z = Mathf.Lerp(ls1.z, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            ls1.y = Mathf.Lerp(ls1.y + Mathf.Pow(2, i /2) * Time.deltaTime, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
             elements1[i].transform.localScale = ls1;
             elements1[i].transform.RotateAround(elements1[i].transform.position, -elements1[i].transform.right, 50 * Time.deltaTime);
 
-            Vector3 ls3 = elements2[i].transform.localScale;
-            ls3.x = Mathf.Lerp(ls3.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
-            elements2[i].transform.localScale = ls3;
-            elements2[i].transform.RotateAround(elements1[i].transform.position, elements1[i].transform.right, 50 * Time.deltaTime);
+
+
+            //Vector3 ls3 = elements2[i].transform.localScale;
+            //ls3.x = Mathf.Lerp(ls3.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
+            //elements2[i].transform.localScale = ls3;
+            //elements2[i].transform.RotateAround(elements1[i].transform.position, elements1[i].transform.right, 50 * Time.deltaTime);
+
         }
+        
     }
+
+    
 
     void createSphere ()
     {
