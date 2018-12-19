@@ -26,4 +26,11 @@ I draw a lot of inspiration from the tetris effect game, I am a big fan of tetri
 * The project should be presentable and work well (Week 11)
 * Polish of the project and get ready to submit and demo (Week 12-13)
 
+## View it on YouTube!!
+[![YouTube](http://img.youtube.com/vi/S1h6h17zOMw&feature=youtu.be&fbclid=IwAR1JoYNm190p1VA9Sgg9nGS-0pSeBi_bYsj5xuB0vTpwvuQawOxhZt7PbJk/0.jpg)](https://www.youtube.com/watch?v=S1h6h17zOMw&feature=youtu.be&fbclid=IwAR1JoYNm190p1VA9Sgg9nGS-0pSeBi_bYsj5xuB0vTpwvuQawOxhZt7PbJk)
+
+
+
+
+
 
