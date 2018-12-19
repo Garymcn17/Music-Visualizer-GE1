@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\LightAudio.cs" />
     <Compile Include="Assets\Scripts\ParamCube.cs" />
     <Compile Include="Assets\Scripts\Pyramid.cs" />
+    <Compile Include="Assets\Scripts\SphereDance.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Gary Mc Nulty/College/Game Engines/Assignment/AudioVisualization/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

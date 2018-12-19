@@ -429,18 +429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  scale: 10
+  scale: 20
   speed: 1
   sphere1: {fileID: 1821403611367874, guid: e30441f8d938b9c4582e3dc9796d8a4e, type: 2}
   pos: 0
   cube1: {fileID: 100000, guid: df42ab0358bcda54c8427034a35794f4, type: 3}
   pyraSize: 20
-  scale1: 1
-  scale2: 1
-  height: 0
-  width: 1
-  locationX: 2.25
-  locationZ: 2.5
 --- !u!1 &1011225385
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useMic: 0
-  clip: {fileID: 8300000, guid: 35d0bc2437bb49e4eae5075934d439ce, type: 3}
+  clip: {fileID: 8300000, guid: a1d812cf64e365243bc82436814786a8, type: 3}
   amgMic: {fileID: 0}
   amgMaster: {fileID: 0}
   selectedDevice: 

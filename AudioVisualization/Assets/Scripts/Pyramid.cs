@@ -7,8 +7,6 @@ public class Pyramid : MonoBehaviour {
     public float radius = 50;
     public float scale = 10;
     List<GameObject> elements = new List<GameObject>();
-    List<GameObject> elements1 = new List<GameObject>();
-    List<GameObject> elements2 = new List<GameObject>();
     List<GameObject> elements3 = new List<GameObject>();
     List<GameObject> elements4 = new List<GameObject>();
     List<GameObject> elements5 = new List<GameObject>();
@@ -35,17 +33,6 @@ public class Pyramid : MonoBehaviour {
         float step = speed * Time.deltaTime;
         for (int i = 0; i < elements.Count/2; i++)
         {
-           
-            //Vector3 ls1 = elements1[i].transform.localScale;
-            //ls1.z = Mathf.Lerp(ls1.z, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
-            //elements1[i].transform.localScale = ls1;
-            //elements1[i].transform.RotateAround(elements[i].transform.position, - elements[i].transform.right, 50 * Time.deltaTime);
-
-            //Vector3 ls3 = elements2[i].transform.localScale;
-            //ls3.x = Mathf.Lerp(ls3.x, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
-            //elements2[i].transform.localScale = ls3;
-            //elements2[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.right, 50 * Time.deltaTime);
-
             Vector3 ls2 = elements3[i].transform.localScale;
             ls2.y = Mathf.Lerp(ls2.y, 1 + (AudioScript.bands[i] * (scale *2)), Time.deltaTime * 3.0f);
             elements3[i].transform.localScale = ls2;
@@ -115,13 +102,13 @@ public class Pyramid : MonoBehaviour {
     }
 
     public GameObject cube1;
-    public int pyraSize = 10;
-    public float scale1 = 1;
-    public float scale2 = 1;
-    public float height = 0;
-    public float width = 1;
-    public float locationX = 2.25f;
-    public float locationZ = 2.5f;
+    public int pyraSize = 20;
+    float scale1 = 1;
+    float scale2 = 1;
+    float height = 0;
+    float width = 1;
+    float locationX = 2.25f;
+    float locationZ = 2.5f;
     float test = 0f;
 
     void CreatePyramid()
@@ -148,49 +135,6 @@ public class Pyramid : MonoBehaviour {
             width++;
             gradient += 0.075f;
 
-            /*
-            //******************************************************************************************* Circle of Spheres
-            Vector3 p = new Vector3(
-                 (Mathf.Sin(theta * z) * 2f) + locationX
-                , .5f
-                , (Mathf.Cos(theta * z) * 2f) + locationZ
-                );
-            p = transform.TransformPoint(p);
-            Quaternion q = Quaternion.AngleAxis(theta * z * Mathf.Rad2Deg, Vector3.up);
-            q = transform.rotation * q;
-
-            GameObject sphere = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
-            sphere.transform.SetPositionAndRotation(p, q);
-            sphere.transform.localScale += new Vector3(0, 0, 0);
-            sphere.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                1
-                , .01f + gradient
-                , .8f
-                );
-            elements1.Add(sphere);
-
-
-            //******************************************************************************************* Circle of Spheres2
-            Vector3 p1 = new Vector3(
-                (Mathf.Sin(theta * z) * radius) + locationX
-                , .5f
-                , (Mathf.Cos(theta * z) * radius) + locationZ
-                );
-            p1 = transform.TransformPoint(p1);
-            Quaternion q1 = Quaternion.AngleAxis(theta * z * Mathf.Rad2Deg, Vector3.up);
-            q1 = transform.rotation * q1;
-
-            GameObject sphere2 = Instantiate(sphere1, Vector3.zero, sphere1.transform.rotation) as GameObject;
-            sphere2.transform.SetPositionAndRotation(p1, q1);
-            sphere2.transform.localScale += new Vector3(0, 0, 0);
-            sphere2.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                1
-                , .01f + gradient
-                , .8f
-                );
-            elements2.Add(sphere2);
-            */
-            
         }
 
         //******************************************************************************************* Spinning Cylinder
@@ -199,7 +143,7 @@ public class Pyramid : MonoBehaviour {
         {
             Vector3 p2 = new Vector3(
             (Mathf.Sin(theta * x) * (radius - 1.2f)) + locationX
-            , 5f
+            , 7f
             , (Mathf.Cos(theta * x) * (radius - 1.2f)) + locationZ
             );
             p2 = transform.TransformPoint(p2);
