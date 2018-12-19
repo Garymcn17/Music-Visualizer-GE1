@@ -73,14 +73,17 @@ public class Pyramid : MonoBehaviour {
                 middle = 0;
             }
             Vector3 ls3 = elements[i].transform.localScale;
-            ls3.y = Mathf.Lerp(ls3.y, -(4 + (AudioScript.bands[middle] * (scale * 2))), Time.deltaTime * 3.0f);
-            elements[i].transform.localScale = ls3;
+            
             if (i > 9 && i < 19)
             {
-                elements[i].transform.RotateAround(elements[i].transform.position, -elements[i].transform.up, 50 * Time.deltaTime);
+                ls3.y = Mathf.Lerp(ls3.y, -(4 + (AudioScript.bands[middle] * (scale * 2))), Time.deltaTime * 3.0f);
+                elements[i].transform.localScale = ls3;
+                elements[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
             }
             else
             {
+                ls3.y = Mathf.Lerp(ls3.y, 4 + (AudioScript.bands[middle] * (scale * 2)), Time.deltaTime * 3.0f);
+                elements[i].transform.localScale = ls3;
                 elements[i].transform.RotateAround(elements[i].transform.position, elements[i].transform.up, 50 * Time.deltaTime);
             }
             middle++;
@@ -123,7 +126,7 @@ public class Pyramid : MonoBehaviour {
 
     void CreatePyramid()
     {
-        float gradient = 1.2f;
+        float gradient = 0f;
         float theta = (Mathf.PI * 2.0f) / (float)AudioScript.bands.Length;
         // Pyramid of cubes
         for (int z = 0; z < 18; z++)
@@ -143,6 +146,7 @@ public class Pyramid : MonoBehaviour {
             scale2 = 1;
             height += .2f;
             width++;
+            gradient += 0.075f;
 
             /*
             //******************************************************************************************* Circle of Spheres
@@ -189,7 +193,7 @@ public class Pyramid : MonoBehaviour {
             
         }
 
-        //******************************************************************************************* Circle of Spheres3
+        //******************************************************************************************* Spinning Cylinder
 
         for (int x = 0; x < 9; x++)
         {
