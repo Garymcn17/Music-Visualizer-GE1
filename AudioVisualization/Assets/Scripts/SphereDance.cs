@@ -4,37 +4,20 @@ using UnityEngine;
 
 public class SphereDance : MonoBehaviour {
 
-
-    Pyramid pyra;
-
     public GameObject sphere1;
     List<GameObject> elements1 = new List<GameObject>();
     List<GameObject> elements2 = new List<GameObject>();
     
-    float scale1 = 1;
-    float scale2 = 1;
-    float height = 0;
-    float width = 1;
-    float locationX = 5.25f;
-    float locationZ = 5.5f;
-    float test = 0f;
-
-    public float radius = 2;
+    float height = -4f;
+    float locationX = 12f;
+    float locationZ = 2.5f;
+    public float radius = 3;
     public float scale = 10;
 
     // Use this for initialization
     void Start () {
         createSphere();
     }
-
-    //IEnumerator Start()
-    //{
-    //    createSphere();
-    //    pyra = GetComponent<Pyramid>();
-    //    yield return new WaitForEndOfFrame();
-    //    List<GameObject> TestElements = pyra.elements;
-    //}
-    
 
     // Update is called once per frame
     void Update () {
@@ -61,18 +44,20 @@ public class SphereDance : MonoBehaviour {
         }
         
     }
-    int x = 9;
+    
+    float gradient1 = 1.1f;
     void createSphere ()
     {
+        float gradient = .1f;
         for (int z = 0; z < 9; z++)
         {
-            float gradient = 0f;
+            
             float theta = (Mathf.PI * 2.0f) / (float)AudioScript.bands.Length;
 
             //******************************************************************************************* Circle of Spheres
             Vector3 p = new Vector3(
-                 (Mathf.Sin(theta * z) * radius) - locationX
-                , -2f
+                 (Mathf.Sin(theta * z) * radius) + locationX
+                , height
                 , (Mathf.Cos(theta * z) * radius) + 1
                 );
             p = transform.TransformPoint(p);
@@ -82,15 +67,17 @@ public class SphereDance : MonoBehaviour {
             sphere2.transform.SetPositionAndRotation(p, q);
             sphere2.transform.localScale += new Vector3(0, 0, 0);
             sphere2.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                    z / (float)AudioScript.bands.Length
-                    , 1
-                    , 1
-                    );
+                1
+                , .01f + gradient
+                , .8f
+                );
             elements1.Add(sphere2);
+            gradient += .15f;
+
             //******************************************************************************************* Circle of Spheres2
             Vector3 p1 = new Vector3(
-                (Mathf.Sin(theta * z) * radius) - locationX 
-                , -2f
+                (Mathf.Sin(theta * z) * radius) + locationX 
+                , height
                 , (Mathf.Cos(theta * z) * radius) + 1
                 );
             p1 = transform.TransformPoint(p1);
@@ -100,12 +87,17 @@ public class SphereDance : MonoBehaviour {
             sphere3.transform.SetPositionAndRotation(p1, q1);
             sphere3.transform.localScale += new Vector3(0, 0, 0);
             sphere3.GetComponent<Renderer>().material.color = Color.HSVToRGB(
-                    x / (float)AudioScript.bands.Length
-                    , 1
-                    , 1
-                    );
+                1
+                , gradient1
+                , .8f
+                );
+            //sphere3.GetComponent<Renderer>().material.color = Color.HSVToRGB(
+            //        z / (float)AudioScript.bands.Length
+            //        , 1
+            //        , 1
+            //        );
             elements2.Add(sphere3);
-            x--;
+            gradient1 -= .15f;
         }
     }
 }
