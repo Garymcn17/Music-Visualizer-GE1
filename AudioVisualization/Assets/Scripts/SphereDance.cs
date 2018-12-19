@@ -25,12 +25,14 @@ public class SphereDance : MonoBehaviour {
 
         for (int i = 0; i < elements1.Count; i++)
         {
-
+            //Changing a sphere on the y axis to make it look like a cylinder
             Vector3 ls1 = elements1[i].transform.localScale;
             ls1.y = Mathf.Lerp(ls1.y, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
             elements1[i].transform.localScale = ls1;
+            //Rotating the element around its own position and right vector.
             elements1[i].transform.RotateAround(elements1[i].transform.position, elements1[i].transform.right, 50 * Time.deltaTime);
 
+            //Changing a sphere on both the z and x axis to make a disk shape.
             Vector3 ls2 = elements2[i].transform.localScale;
             ls2.z = Mathf.Lerp(ls2.z, 1 + (AudioScript.bands[i] * scale), Time.deltaTime * 3.0f);
             elements2[i].transform.localScale = ls2;
@@ -54,7 +56,7 @@ public class SphereDance : MonoBehaviour {
             
             float theta = (Mathf.PI * 2.0f) / (float)AudioScript.bands.Length;
 
-            //******************************************************************************************* Circle of Spheres
+            //******************************************************************************************* Circle of Spheres1
             Vector3 p = new Vector3(
                  (Mathf.Sin(theta * z) * radius) + locationX
                 , height

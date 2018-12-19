@@ -63,9 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AudioScript.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\CircularMovement.cs" />
     <Compile Include="Assets\Scripts\InstantiateCubes.cs" />
-    <Compile Include="Assets\Scripts\LightAudio.cs" />
     <Compile Include="Assets\Scripts\ParamCube.cs" />
     <Compile Include="Assets\Scripts\Pyramid.cs" />
     <Compile Include="Assets\Scripts\SphereDance.cs" />
